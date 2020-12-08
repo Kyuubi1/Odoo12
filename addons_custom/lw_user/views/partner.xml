@@ -1,0 +1,33 @@
+<odoo>
+    <data>
+        <record id="view_users_partner_tree" model="ir.ui.view">
+            <field name="name">Partner</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type="xml">
+                <tree>
+                <field name="name"/>
+                <field name="x_lw_height"/>
+                <field name="x_lw_weight"/>
+                <field name="x_lw_bmi"/>
+                <field name="x_lw_dob"/>
+                <field name="x_lw_gender"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_partner_form" model="ir.actions.act_window">
+            <field name="name">Partner</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_users_partner_tree"/>
+            <!--            <field name="target">new</field>-->
+        </record>
+        <menuitem name="User" id="main_user_menu"/>
+        <menuitem id="user_menu" name="List User"
+                  parent="main_user_menu"/>
+        <menuitem id="list_menu" name="Users" parent="user_menu"
+                  action="action_partner_form"/>
+
+    </data>
+</odoo>

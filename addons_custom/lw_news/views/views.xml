@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <!--
+    <record model="ir.ui.view" id="lw_news.list">
+      <field name="name">lw_news list</field>
+      <field name="model">lw_news.lw_news</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+    -->
+
+    <!-- actions opening views on models -->
+    <!--
+    <record model="ir.actions.act_window" id="lw_news.action_window">
+      <field name="name">lw_news window</field>
+      <field name="res_model">lw_news.lw_news</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    -->
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="lw_news.action_server">
+      <field name="name">lw_news server</field>
+      <field name="model_id" ref="model_lw_news_lw_news"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="lw_news" id="lw_news.menu_root"/>
+    -->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="lw_news.menu_1" parent="lw_news.menu_root"/>
+    <menuitem name="Menu 2" id="lw_news.menu_2" parent="lw_news.menu_root"/>
+    -->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="lw_news.menu_1_list" parent="lw_news.menu_1"
+              action="lw_news.action_window"/>
+    <menuitem name="Server to list" id="lw_news" parent="lw_news.menu_2"
+              action="lw_news.action_server"/>
+    -->
+  </data>
+</odoo>

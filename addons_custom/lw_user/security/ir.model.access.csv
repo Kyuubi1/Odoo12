@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_lw_access_token,lw_access_token,model_lw_access_token,base.group_user,1,1,1,0
+access_lw_fcm_token,lw_fcm_token,model_lw_fcm_token,base.group_user,1,1,1,0
+access_lw_weightloss_area,lw_weightloss_area,model_lw_weightloss_area,base.group_user,1,1,1,0
+access_lw_weightloss_area_partner,lw_weightloss_area_partner,model_lw_weightloss_area_partner,base.group_user,1,1,1,0
+access_lw_calo_history,lw_calo_history,model_lw_calo_history,base.group_user,1,1,1,0
+access_res_partner,lw_user.res_partner,model_res_partner,base.group_user,1,1,1,0
