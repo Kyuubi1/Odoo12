@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <record id="lw_news_form_view" model="ir.ui.view">
+        <field name="name">lw.news.form.view</field>
+        <field name="model">lw.news</field>
+        <field name="arch" type="xml">
+            <form string="News Detail">
+        <sheet>
+            <h4>Thumbnail</h4>
+            <field name="field_binary_import" filename="field_binary_name" widget="image" style="width: 150px; height:150px"/>
+            <field name="field_binary_name" invisible="1"/>
+            <h4>Title</h4>
+            <field name="title" string="Title"  class="news_title_form"/>
+            <h4>Content</h4>
+            <field name="description" string="Content" widget="html" style="width:100%"/>
+        </sheet>
+            </form>
+        </field>
+        </record>
+         <record id="lw_news_tree_view" model="ir.ui.view">
+            <field name="name">lw.news.tree.view</field>
+            <field name="model">lw.news</field>
+            <field name="arch" type="xml">
+                <tree string="News List"  delete="1">
+                    <field name="title" string="Title" />
+                    <field name="description" />
+                    <field name="image_url_list" string="Image"/>
+                    <field name="write_date" string="Modified Date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_new_form" model="ir.actions.act_window">
+            <field name="name">News</field>
+            <field name="res_model">lw.news</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="lw_news_tree_view"/>
+            <!--            <field name="target">new</field>-->
+        </record>
+
+        <menuitem id="news_menu" name="News"
+                  parent="lw_user.main_user_menu" sequence="10"  action="action_new_form"/>
+
+    </data>
+</odoo>
