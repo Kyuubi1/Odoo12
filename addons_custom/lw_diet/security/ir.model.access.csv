@@ -1,9 +1,9 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_lw_diet,lw_diet,model_lw_diet,base.group_user,1,1,1,0
-access_lw_diet_today,lw_diet_today,model_lw_diet_today,base.group_user,1,1,1,0
-access_lw_food,lw_food,model_lw_food,base.group_user,1,1,1,0
-access_lw_food_category,lw_food_category,model_lw_food_category,base.group_user,1,1,1,0
-access_lw_food_menu_partner,lw_food_menu_partner,model_lw_food_menu_partner,base.group_user,1,1,1,0
-access_lw_food_menu_partner_today,lw_food_menu_partner_today,model_lw_food_menu_partner_today,base.group_user,1,1,1,0
-access_lw_food_star,lw_food_star,model_lw_food_star,base.group_user,1,1,1,0
-access_lw_menu,lw_menu,model_lw_menu,base.group_user,1,1,1,0
+access_lw_diet,lw_diet,model_lw_diet,base.group_user,1,1,1,1
+access_lw_diet_today,lw_diet_today,model_lw_diet_today,base.group_user,1,1,1,1
+access_lw_food,lw_food,model_lw_food,base.group_user,1,1,1,1
+access_lw_food_category,lw_food_category,model_lw_food_category,base.group_user,1,1,1,1
+access_lw_food_menu_partner,lw_food_menu_partner,model_lw_food_menu_partner,base.group_user,1,1,1,1
+access_lw_food_menu_partner_today,lw_food_menu_partner_today,model_lw_food_menu_partner_today,base.group_user,1,1,1,1
+access_lw_food_star,lw_food_star,model_lw_food_star,base.group_user,1,1,1,1
+access_lw_menu,lw_menu,model_lw_menu,base.group_user,1,1,1,1

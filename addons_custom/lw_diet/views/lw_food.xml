@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="lw_food_form_view" model="ir.ui.view">
+        <field name="name">lw.food.form.view</field>
+        <field name="model">lw.food</field>
+        <field name="arch" type="xml">
+            <form string="Food Detail">
+                <group>
+                 <field name="image" string="Image" widget="image" style="width: 150px; height: 150px"/>
+                <field name="name" string="Name" style="width: 300px; height: 40px"/>
+                <field name="calo" string="Calo" style="width: 300px; height: 40px"/>
+                <field name="description" widget="html" string="Description"/>
+                </group>
+                <group>
+                <field name="category_id" string="Category" style="width: 300px; height: 40px" options="{'no_create_edit': True, 'no_create':True}"/>
+                </group>
+            </form>
+        </field>
+        </record>
+
+
+        <record id="lw_food_tree_view" model="ir.ui.view">
+            <field name="name">lw.food.tree.view</field>
+            <field name="model">lw.food</field>
+            <field name="arch" type="xml">
+                <tree string="Foods List"  delete="1">
+                    <field name="name" string="Name" />
+                    <field name="calo"  string="Calo"/>
+                    <field name="description" string="Description"/>
+                    <field name="recommend_level" string="Level"/>
+                    <field name="prepare_time" string="Prepare Time"/>
+                    <field name="cooking_time" string="Cooking Time"/>
+                    <field name="category_id" string="Category"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_food_form" model="ir.actions.act_window">
+            <field name="name">Foods</field>
+            <field name="res_model">lw.food</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="lw_food_tree_view"/>
+<!--            <field name="target">new</field>-->
+        </record>
+
+        <menuitem id="food_menu" name="Food"
+                  parent="lw_user.main_user_menu" sequence="11"/>
+
+         <menuitem id="food_item_menu" name="Food"
+                  parent="food_menu" sequence="1"  action="action_food_form"/>
+
+    </data>
+</odoo>

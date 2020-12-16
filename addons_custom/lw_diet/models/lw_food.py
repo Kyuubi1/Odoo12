@@ -6,6 +6,7 @@ from odoo import models, fields, api
 class LWFood(models.Model):
     _name = 'lw.food'
     _description = 'Food'
+    _rec_name = 'name'
 
     name = fields.Char(string="Name", required=1)
     calo = fields.Float(string="Calo", required=1, default=0)
@@ -24,5 +25,5 @@ class LWFood(models.Model):
     ], string="Recommend Level")
     prepare_time = fields.Float(string="Prepare Time", required=1, help="Time for preparing in minutes")
     cooking_time = fields.Float(string="Cooking Time", required=1, help="Time for cooking in minutes")
-    category_id = fields.Many2one(string="Category", requried=1)
+    category_id = fields.Many2one('lw.food.category', string="Category", requried=1)
     image = fields.Char(string="Image Url")
