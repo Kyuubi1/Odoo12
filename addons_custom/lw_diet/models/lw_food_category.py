@@ -15,8 +15,8 @@ class LWFoodCategory(models.Model):
     def name_get(self):
         res = []
         for category in self:
-            category_name = self.env['lw_category'].sudo.search([('code', '=', category.category_code)])[0]
-            res.append((category.id, category_name))
+            category_name = self.env['lw.category'].sudo().search([('code', '=', category.category_code)])[0]
+            res.append((category.id, category_name.name))
 
         return res
 
