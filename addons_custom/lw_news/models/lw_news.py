@@ -5,6 +5,7 @@ import re
 import boto3, logging
 import base64, json
 from addons_custom import const
+from odoo.tools.config import config
 _logger = logging.getLogger(__name__)
 
 
@@ -65,12 +66,16 @@ class LWNews(models.Model):
 
     def upload_file(self, image, name):
         try:
-            session = boto3.Session(aws_access_key_id=const.AWS_ACCESS_KEY_ID, aws_secret_access_key=const.AWS_SECRET_ACCESS_KEY)
+            bucket_name = config.get('bucket_name')
+            endpoint_s3 = config.get('endpoint_s3')
+            aws_access_key_id = config.get('aws_access_key_id')
+            aws_secret_access_key = config.get('aws_secret_access_key')
+            session = boto3.Session(aws_access_key_id=aws_access_key_id, aws_secret_access_key=aws_secret_access_key)
             s3 = session.resource('s3')
-            lw_s3 = s3.Bucket(const.BUCKET_NAME)
+            lw_s3 = s3.Bucket(bucket_name)
             data = base64.b64decode(image)
             lw_s3.put_object(Key=name, Body=data)
-            image_url = const.ENDPOINT_S3 + const.BUCKET_NAME + '/' + name
+            image_url = endpoint_s3 + bucket_name + '/' + name
             return image_url
         except Exception as err:
             raise err

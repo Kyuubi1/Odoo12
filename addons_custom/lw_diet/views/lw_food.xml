@@ -7,13 +7,13 @@
         <field name="arch" type="xml">
             <form string="Food Detail">
                 <group>
-                 <field name="image" string="Image" widget="image" style="width: 150px; height: 150px"/>
+                 <field name="field_binary_import" filename="field_binary_name" widget="image" style="width: 150px; height:150px"/><field name="field_binary_name" invisible="1"/>
                 <field name="name" string="Name" style="width: 300px; height: 40px"/>
                 <field name="calo" string="Calo" style="width: 300px; height: 40px"/>
                 <field name="description" widget="html" string="Description"/>
                 </group>
                 <group>
-                <field name="category_id" string="Category" style="width: 300px; height: 40px" options="{'no_create_edit': True, 'no_create':True}"/>
+                <field name="category_id" string="Category" style="width: 300px; height: 40px" options="{'no_create':True}"/>
                 </group>
             </form>
         </field>
@@ -28,9 +28,6 @@
                     <field name="name" string="Name" />
                     <field name="calo"  string="Calo"/>
                     <field name="description" string="Description"/>
-                    <field name="recommend_level" string="Level"/>
-                    <field name="prepare_time" string="Prepare Time"/>
-                    <field name="cooking_time" string="Cooking Time"/>
                     <field name="category_id" string="Category"/>
                 </tree>
             </field>
