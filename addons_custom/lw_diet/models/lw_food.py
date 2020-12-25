@@ -29,7 +29,7 @@ class LWFood(models.Model):
     ], string="Recommend Level")
     prepare_time = fields.Float(string="Prepare Time", help="Time for preparing in minutes")
     cooking_time = fields.Float(string="Cooking Time", help="Time for cooking in minutes")
-    category_id = fields.Many2one('lw.food.category', string="Category", requried=1)
+    category_id = fields.Many2one('lw.category', string="Category", requried=1)
     image = fields.Char(string="Image Url")
     field_binary_import = fields.Binary(string="Image", store=False)
     field_binary_name = fields.Char(string="Image", store=False)
@@ -54,6 +54,11 @@ class LWFood(models.Model):
             'image': image
         }]
         res = super(LWFood, self).create(val_create)
+
+        self.env['lw.food.category'].create([{
+            'food_id': res.id,
+            'category_code': res.category_id.code
+        }])
 
         return res
 
