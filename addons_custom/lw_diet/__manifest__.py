@@ -22,7 +22,8 @@
         'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
-        'views/lw_food.xml'
+        'views/lw_food.xml',
+        'views/weekly_menu_food.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

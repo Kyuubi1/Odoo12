@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="lw_food_menu_form_view" model="ir.ui.view">
+        <field name="name">lw.food.menu.week.form.view</field>
+        <field name="model">lw.food.menu.week</field>
+        <field name="arch" type="xml">
+            <form string="Food Meal">
+                <group>
+                <field name="food_id" widget="many2many_tags" string="Food" style="width: 300px; height: 40px" options="{'no_create':True}"/>
+                <field name="menu_id" string="Meals" style="width: 300px; height: 40px" options="{'no_create':True}"/>
+                    <field name="week_id" string="Days Of Week" style="width: 300px; height: 40px" options="{'no_create':True}"/>
+                </group>
+
+            </form>
+        </field>
+        </record>
+
+
+        <record id="lw_food_menu_tree_view" model="ir.ui.view">
+            <field name="name">lw.food.menu.week.tree.view</field>
+            <field name="model">lw.food.menu.week</field>
+            <field name="arch" type="xml">
+                <tree string="Foods List"  delete="1">
+                    <field name="food_id" string="Food" />
+                    <field name="week_id"  string="Days Of Week"/>
+                    <field name="menu_id" string="Meals"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_food_menu" model="ir.actions.act_window">
+            <field name="name">Weekly Food Meals</field>
+            <field name="res_model">lw.food.menu.week</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="lw_food_menu_tree_view"/>
+<!--            <field name="target">new</field>-->
+        </record>
+
+         <menuitem id="food_week_menu" name="Daily Food"
+                  parent="food_menu" sequence="2"  action="action_food_menu"/>
+    </data>
+</odoo>

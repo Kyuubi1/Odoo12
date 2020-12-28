@@ -78,3 +78,10 @@ class LWFood(models.Model):
             return image_url
         except Exception as err:
             raise err
+
+    def name_get(self):
+        res = []
+        for item in self:
+            res.append((item.id, item.name))
+
+        return res
