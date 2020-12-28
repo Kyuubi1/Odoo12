@@ -10,7 +10,7 @@
                  <field name="field_binary_import" filename="field_binary_name" widget="image" style="width: 150px; height:150px"/><field name="field_binary_name" invisible="1"/>
                 <field name="name" string="Name" style="width: 300px; height: 40px"/>
                 <field name="calo" string="Calo" style="width: 300px; height: 40px"/>
-                <field name="description" widget="html" string="Description"/>
+                <field name="description"  string="Description" style="width: 500px; height: 40px"/>
                 </group>
                 <group>
                 <field name="category_id" string="Category" style="width: 300px; height: 40px" options="{'no_create':True}"/>

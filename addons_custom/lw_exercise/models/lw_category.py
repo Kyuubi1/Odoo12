@@ -7,3 +7,10 @@ class LWCategory(models.Model):
 
     name = fields.Char(string="Name", required=1)
     code = fields.Char(string="Code", required=1)
+
+
+    def name_get(self):
+        res = []
+        for category in self:
+            res.append((category.id, category.name))
+        return res
