@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <record id="lw_video_form_view" model="ir.ui.view">
+        <field name="name">lw.video.view</field>
+        <field name="model">lw.video</field>
+        <field name="arch" type="xml">
+            <form string="Video Detail">
+        <sheet>
+            <group>
+            <field name="field_binary_import" filename="field_binary_name" style="width: 150px; height:30px"/>
+            <field name="field_binary_name" invisible="1"/>
+            <field name="video_name" string="Video Name" style="width: 250px"/>
+            </group>
+            <group>
+            <field name="image_import" filename="image_name" widget="image" style="width: 150px; height:150px" string="Thumbnail"/>
+            <field name="image_name" invisible="1"/>
+            <field name="description" string="Description"  style="width: 250px; height: 30px"/>
+            <field name="calo" string="Calo"  style="width: 100px "/>
+            </group>
+        </sheet>
+            </form>
+        </field>
+        </record>
+         <record id="lw_video_tree_view" model="ir.ui.view">
+            <field name="name">lw.video.tree.view</field>
+            <field name="model">lw.video</field>
+            <field name="arch" type="xml">
+                <tree string="Video List"  delete="1">
+                    <field name="video_name" string="Name" />
+                    <field name="description" />
+                    <field name="write_date" string="Modified Date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_video_form" model="ir.actions.act_window">
+            <field name="name">Video</field>
+            <field name="res_model">lw.video</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="lw_video_tree_view"/>
+        </record>
+
+
+        <menuitem id="exercise_menu" name="Exercise"
+                  parent="lw_user.main_user_menu" sequence="12" />
+
+        <menuitem id="video_menu" name="Video" parent="exercise_menu" action="action_video_form" sequence="1"/>
+
+    </data>
+</odoo>

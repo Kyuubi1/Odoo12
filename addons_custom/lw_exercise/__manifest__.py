@@ -22,6 +22,9 @@
         'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
+        'views/lw_video.xml',
+        'views/lw_exercise.xml',
+        'views/lw_ex_week.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
