@@ -10,4 +10,4 @@ class LWFoodMenuPartner(models.Model):
     food_id = fields.Many2one('lw.food',string="Food", required=1)
     star = fields.Integer(string="Star")
     res_partner_id = fields.Many2one('res.partner', string="Customer", required=1)
-    # like_flag = fields.Integer(string="Like Flag")
+    like_flag = fields.Integer(string="Like Flag")
