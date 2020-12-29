@@ -14,7 +14,7 @@ class LWFood(models.Model):
 
     name = fields.Char(string="Name", required=1)
     calo = fields.Float(string="Calo", required=1, default=0)
-    description = fields.Text(string="Description", required=1, help="Show how to cook that and image of this food")
+    description = fields.Text(string="Description",help="Show how to cook that and image of this food")
     total_like = fields.Integer(string="Total Likes", default=0)
     recommend_level = fields.Selection([
         ('1', '1'),
