@@ -29,6 +29,8 @@ class ResPartnerUer(models.Model):
     facebook_user_id = fields.Char()
     ocn_token = fields.Char()
     avatar = fields.Char()
+    address = fields.Char()
+    physical = fields.Char()
 
     def _compute_bmi(self):
         for item in self:
