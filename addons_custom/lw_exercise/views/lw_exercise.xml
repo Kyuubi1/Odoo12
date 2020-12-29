@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <record id="lw_exercise_form_view" model="ir.ui.view">
+        <field name="name">lw.exercise.view</field>
+        <field name="model">lw.exercise</field>
+        <field name="arch" type="xml">
+            <form string="Exercise Detail">
+        <sheet>
+            <group>
+            <field name="name" string="Name" style="width: 250px"/>
+            </group>
+            <group>
+            <field name="image_import" filename="image_name" widget="image" style="width: 150px; height:150px" string="Image"/>
+            <field name="image_name" invisible="1"/>
+            <field name="description" string="Description"  style="width: 250px; height: 30px"/>
+                <field name="weightloss_area_ids" string="Weight Lost Area" options="{'no_create':True}" style="width: 200px" widget="many2many_tags"/>
+                <field name="video_url" string="Video" options="{'no_create':True}" style="width: 200px"/>
+            </group>
+        </sheet>
+            </form>
+        </field>
+        </record>
+         <record id="lw_exercise_tree_view" model="ir.ui.view">
+            <field name="name">lw.exercise.tree.view</field>
+            <field name="model">lw.exercise</field>
+            <field name="arch" type="xml">
+                <tree string="Exercise List"  delete="1">
+                    <field name="name" string="Name" />
+                    <field name="description" />
+                    <field name="write_date" string="Modified Date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_exercise_form" model="ir.actions.act_window">
+            <field name="name">Exercise</field>
+            <field name="res_model">lw.exercise</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="lw_exercise_tree_view"/>
+        </record>
+
+
+        <menuitem id="exercise_list_menu" name="Exercise" parent="exercise_menu" action="action_exercise_form" sequence="2"/>
+
+    </data>
+</odoo>

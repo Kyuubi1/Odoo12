@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <record id="lw_exercise_week_form_view" model="ir.ui.view">
+        <field name="name">lw.exercise.week.view</field>
+        <field name="model">lw.exercise.week</field>
+        <field name="arch" type="xml">
+            <form string="Exercise Week Detail">
+        <sheet>
+            <group>
+                <field name="exercise_id" string="Exercise" options="{'no_create':True}" style="width: 200px"/>
+            </group>
+            <group>
+                <field name="week_id" string="Day of Week" options="{'no_create':True}" style="width: 200px"/>
+
+            </group>
+        </sheet>
+            </form>
+        </field>
+        </record>
+         <record id="lw_exercise_week_tree_view" model="ir.ui.view">
+            <field name="name">lw.exercise.week.tree.view</field>
+            <field name="model">lw.exercise.week</field>
+            <field name="arch" type="xml">
+                <tree string="Exercise Week"  delete="1">
+                    <field name="exercise_id" string="Exercise" />
+                    <field name="day_of_week" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_exercise_week_form" model="ir.actions.act_window">
+            <field name="name">Exercise Week</field>
+            <field name="res_model">lw.exercise.week</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="lw_exercise_week_tree_view"/>
+        </record>
+
+
+        <menuitem id="exercise_week_menu" name="Exercise Week" parent="exercise_menu" action="action_exercise_week_form" sequence="3"/>
+
+    </data>
+</odoo>
