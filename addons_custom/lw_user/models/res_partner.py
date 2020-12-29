@@ -26,6 +26,8 @@ class ResPartnerUer(models.Model):
         ('very_strong', 'Very Strong')
     ], string="Power", required=1, default='normal')
 
+    facebook_user_id = fields.Char()
+
     def _compute_bmi(self):
         for item in self:
             try:
