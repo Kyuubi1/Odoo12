@@ -74,7 +74,7 @@ class LWNews(models.Model):
             s3 = session.resource('s3')
             lw_s3 = s3.Bucket(bucket_name)
             data = base64.b64decode(image)
-            lw_s3.put_object(Key=name, Body=data)
+            lw_s3.put_object(Key=name, Body=data, ACL='public-read-write')
             image_url = endpoint_s3 + bucket_name + '/' + name
             return image_url
         except Exception as err:
