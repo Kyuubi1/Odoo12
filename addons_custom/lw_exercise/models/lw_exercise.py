@@ -12,7 +12,7 @@ class LWExercise(models.Model):
 
     name = fields.Char(string="Name", required=1)
     duration = fields.Integer(string="Duration", help='Duration for 1 exercise in second')
-    description = fields.Text(string="Description", help='Show how to practice this exercise', required=1)
+    description = fields.Text(string="Description", help='Show how to practice this exercise')
     kcal = fields.Float(string="Kcal", help="Calories consumed after completing the exercise")
     min_weight = fields.Float(string="Min Weight", help="Min Weight that can fit exercises")
     max_weight = fields.Float(string="Max Weight", help="Max Weight that can fit exercises")
