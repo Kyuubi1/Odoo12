@@ -56,6 +56,10 @@ class LWExercise(models.Model):
             res.write({
             'weightloss_area_ids': [(4, item)]
             })
+        self.env['lw.exercise.video'].create([{
+            'exercise_id': res.id,
+            'video_id': video_url
+        }])
         return res
 
     def upload_file(self, image, name):
