@@ -20,7 +20,7 @@ class LWExercise(models.Model):
     max_height = fields.Float(string="Max Height", help="Max Height that can fit exercises")
     fixed = fields.Boolean(string="Fixed", help="Type of exercise", required=1, default=True)
     weightloss_area_ids = fields.Many2many("lw.weightloss.area", string="WeightLoss Area")
-    video_url = fields.Many2one('lw.video', string='Video', store=False)
+    video_id = fields.Many2many('lw.video', string='Video')
     image = fields.Char(string="Image Url")
     video = fields.Char(string="Video Url")
     image_import = fields.Binary(string="Video", store=False)
@@ -33,33 +33,34 @@ class LWExercise(models.Model):
         name = vals.get('name')
         image_name = vals.get('image_name')
         des = vals.get('description')
-        video_url = vals.get('video_url')
         weightloss_area_ids = vals.get('weightloss_area_ids')
         area_id = weightloss_area_ids[0][2]
+        video = vals.get('video_id')
+        video_id = video[0][2]
 
         image_url = None
-        url = None
         if image_import:
             image_url = self.upload_file(image_import, image_name)
 
-        video = self.env['lw.video'].sudo().search([('id', '=', video_url)])
-        if video:
-            url = video.url
         val_create = [{
             'name': name,
             'description': des,
             'image': image_url,
-            'video': url
         }]
         res = super(LWExercise, self).create(val_create)
         for item in area_id:
             res.write({
             'weightloss_area_ids': [(4, item)]
             })
-        self.env['lw.exercise.video'].create([{
-            'exercise_id': res.id,
-            'video_id': video_url
-        }])
+        for item in video_id:
+
+            self.env['lw.exercise.video'].create([{
+                'exercise_id': res.id,
+                'video_id': item
+            }])
+            res.write({
+                'video_id': [(4, item)]
+            })
         return res
 
     def upload_file(self, image, name):
