@@ -16,7 +16,7 @@
             <field name="image_name" invisible="1"/>
             <field name="description" string="Description"  style="width: 250px; height: 30px"/>
                 <field name="weightloss_area_ids" string="Weight Lost Area" options="{'no_create':True}" style="width: 200px" widget="many2many_tags"/>
-                <field name="video_url" string="Video" options="{'no_create':True}" style="width: 200px"/>
+                <field name="video_id" string="Video" options="{'no_create':True}" style="width: 200px" widget="many2many_tags"/>
             </group>
         </sheet>
             </form>
