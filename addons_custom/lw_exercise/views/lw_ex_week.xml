@@ -9,7 +9,7 @@
             <form string="Exercise Week Detail">
         <sheet>
             <group>
-                <field name="exercise_id" string="Exercise" options="{'no_create':True}" style="width: 200px"/>
+                <field name="exercise_id" string="Exercise" options="{'no_create':True}" style="width: 200px" widget="many2many_tags"/>
             </group>
             <group>
                 <field name="week_id" string="Day of Week" options="{'no_create':True}" style="width: 200px"/>
